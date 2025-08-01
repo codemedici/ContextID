@@ -1,2 +1,21 @@
+# ------------------------------------------------------------
+# Output values for the API Gateway module
+# ------------------------------------------------------------
+
+output "rest_api_id" {
+  description = "ID of the REST API"
+  value       = aws_api_gateway_rest_api.this.id
+}
+
+output "authorizer_id" {
+  description = "ID of the Lambda authorizer"
+  value       = aws_api_gateway_authorizer.did.id
+}
+
+output "invoke_url" {
+  description = "Base invoke URL for the API stage"
+  value       = aws_api_gateway_stage.this.invoke_url
+}
+=======
 // Output values for the api-gateway module
 # TODO: Define module outputs
