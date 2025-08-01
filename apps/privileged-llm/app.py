@@ -6,10 +6,11 @@ network access. Replace the stub endpoint with actual LLM inference code.
 
 from fastapi import FastAPI
 
+# Instantiate FastAPI application
 app = FastAPI()
 
 
 @app.get("/")
 def read_root():
-    """Health check endpoint."""
+    """Health check endpoint for the privileged model."""
     return {"message": "Privileged LLM placeholder"}

@@ -7,10 +7,11 @@ inference logic.
 
 from fastapi import FastAPI
 
+# Instantiate FastAPI application
 app = FastAPI()
 
 
 @app.get("/")
 def read_root():
-    """Health check endpoint."""
+    """Health check endpoint for the quarantined model."""
     return {"message": "Quarantined LLM placeholder"}
