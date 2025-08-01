@@ -43,6 +43,3 @@ variable "quarantined_llm_image" {
   type        = string
   default     = "123456789012.dkr.ecr.us-east-1.amazonaws.com/quarantined-llm:latest"
 }
-=======
-// Input variables for the ecs module
-# TODO: Declare module variables

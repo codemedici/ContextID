@@ -16,6 +16,3 @@ output "task_definition_arn" {
   description = "ARN of the dual-LLM task definition"
   value       = aws_ecs_task_definition.dual_llm.arn
 }
-=======
-// Output values for the ecs module
-# TODO: Define module outputs

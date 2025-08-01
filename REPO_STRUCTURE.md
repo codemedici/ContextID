@@ -44,7 +44,9 @@ This repository scaffolds a secure, scalable, and reusable architecture for LLM-
     - **rds-opensearch/** – PostgreSQL and OpenSearch resources with KMS encryption.
     - **lambda-proxies/** – Lambda functions acting as secure API proxies.
     - **api-gateway/** – API Gateway configurations with DID/VC/BBS+ authorizers.
-  - **environments/** – Environment-specific Terraform configs (e.g., dev, prod).
+  - **environments/** – Environment-specific Terraform root configurations with remote state backends.
+    - **dev/** – Calls modules with sandbox values; includes `backend.tf`, `main.tf`, `variables.tf`, and `outputs.tf`.
+    - **prod/** – Production settings and state backend; mirrors `dev/` structure with hardened defaults.
 - **apps/** – Application source code and Dockerfiles for LLM containers.
   - **privileged-llm/** – Code for the privileged LLM container.
   - **quarantined-llm/** – Code for the quarantined LLM container.

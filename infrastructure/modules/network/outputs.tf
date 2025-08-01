@@ -26,6 +26,3 @@ output "default_security_group_id" {
   description = "ID of the baseline security group"
   value       = aws_security_group.default.id
 }
-=======
-// Output values for the network module
-# TODO: Define module outputs

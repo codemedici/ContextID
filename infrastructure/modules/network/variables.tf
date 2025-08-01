@@ -34,6 +34,3 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
-=======
-// Input variables for the network module
-# TODO: Declare module variables

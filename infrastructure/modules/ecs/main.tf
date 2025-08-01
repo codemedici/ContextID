@@ -49,10 +49,3 @@ resource "aws_ecs_task_definition" "dual_llm" {
 
   # TODO: add logging, volumes, and further hardening options
 }
-=======
-// Placeholder Terraform module for ecs
-terraform {
-  required_version = ">= 1.0"
-}
-
-# TODO: Define resources for the ecs module

@@ -11,6 +11,3 @@ output "opensearch_endpoint" {
   description = "URL of the OpenSearch domain"
   value       = aws_opensearch_domain.search.endpoint
 }
-=======
-// Output values for the rds-opensearch module
-# TODO: Define module outputs

@@ -40,10 +40,3 @@ resource "aws_api_gateway_stage" "this" {
   deployment_id = aws_api_gateway_deployment.this.id
   stage_name    = var.stage_name
 }
-=======
-// Placeholder Terraform module for api-gateway
-terraform {
-  required_version = ">= 1.0"
-}
-
-# TODO: Define resources for the api-gateway module
