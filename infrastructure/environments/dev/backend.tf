@@ -4,10 +4,10 @@
 # ------------------------------------------------------------
 terraform {
   backend "s3" {
-    bucket         = "terraform-state-dev"                    # Example S3 bucket for dev state
-    key            = "llm-architecture/dev/terraform.tfstate" # Path within the bucket
-    region         = "us-east-1"                              # Bucket region
-    dynamodb_table = "terraform-lock-dev"                     # DynamoDB table for locking
-    encrypt        = true                                     # Encrypt state at rest
+    bucket         = "terraform-state-contextid-eu-west-2"
+    key            = "terraform.tfstate"
+    region         = "eu-west-2"
+    dynamodb_table = "terraform-lock-contextid"
+    encrypt        = true
   }
 }
