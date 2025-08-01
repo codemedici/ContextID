@@ -93,3 +93,6 @@ variable "os_kms_key_arn" {
   type        = string
   default     = "arn:aws:kms:us-east-1:123456789012:key/example"
 }
+=======
+// Input variables for the rds-opensearch module
+# TODO: Declare module variables

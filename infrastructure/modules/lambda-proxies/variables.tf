@@ -49,3 +49,6 @@ variable "security_group_ids" {
   type        = list(string)
   default     = []
 }
+=======
+// Input variables for the lambda-proxies module
+# TODO: Declare module variables
