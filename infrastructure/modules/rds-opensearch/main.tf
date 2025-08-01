@@ -185,4 +185,3 @@ resource "aws_cloudwatch_metric_alarm" "os_status_red" {
     DomainName = aws_opensearch_domain.search.domain_name
   }
 }
-
