@@ -45,6 +45,12 @@ variable "db_subnet_group_name" {
   default     = "example-subnet-group"
 }
 
+variable "db_subnet_ids" {
+  description = "Subnets used by the RDS instance"
+  type        = list(string)
+  default     = []
+}
+
 variable "db_security_group_ids" {
   description = "Security groups for the DB instance"
   type        = list(string)
@@ -55,6 +61,12 @@ variable "db_kms_key_arn" {
   description = "KMS key ARN for encrypting the DB"
   type        = string
   default     = "arn:aws:kms:us-east-1:123456789012:key/example"
+}
+
+variable "db_multi_az" {
+  description = "Enable Multi-AZ deployment"
+  type        = bool
+  default     = false
 }
 
 # OpenSearch settings
@@ -92,4 +104,40 @@ variable "os_kms_key_arn" {
   description = "KMS key ARN for encrypting the OpenSearch domain"
   type        = string
   default     = "arn:aws:kms:us-east-1:123456789012:key/example"
+}
+
+variable "os_subnet_ids" {
+  description = "Subnet IDs for the OpenSearch domain"
+  type        = list(string)
+  default     = []
+}
+
+variable "os_security_group_ids" {
+  description = "Security groups for the OpenSearch domain"
+  type        = list(string)
+  default     = []
+}
+
+variable "os_master_user" {
+  description = "Master user for OpenSearch fine-grained access control"
+  type        = string
+  default     = "admin"
+}
+
+variable "os_master_password" {
+  description = "Master password for OpenSearch"
+  type        = string
+  default     = "change-me"
+}
+
+variable "alarm_topic_arns" {
+  description = "List of SNS topic ARNs for alarm notifications"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "Map of tags to assign"
+  type        = map(string)
+  default     = {}
 }

@@ -11,3 +11,8 @@ output "opensearch_endpoint" {
   description = "URL of the OpenSearch domain"
   value       = aws_opensearch_domain.search.endpoint
 }
+
+output "data_access_role_arn" {
+  description = "IAM role ARN for accessing data stores"
+  value       = aws_iam_role.data_access.arn
+}

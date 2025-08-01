@@ -30,13 +30,15 @@ module "network" {
 
 # ECS cluster hosting dual LLM containers
 module "ecs" {
-  source = "../../modules/ecs"
-
+  source                = "../../modules/ecs"
   cluster_name          = var.cluster_name
-  execution_role_arn    = var.execution_role_arn
-  task_role_arn         = var.task_role_arn
   privileged_llm_image  = var.privileged_llm_image
   quarantined_llm_image = var.quarantined_llm_image
+  subnet_ids            = module.network.private_subnet_ids
+  security_group_ids    = [module.network.default_security_group_id]
+  desired_count         = var.desired_count
+  min_capacity          = var.min_capacity
+  max_capacity          = var.max_capacity
 }
 
 # PostgreSQL database and OpenSearch domain
@@ -47,11 +49,14 @@ module "rds_opensearch" {
   db_username           = var.db_username
   db_password           = var.db_password
   db_subnet_group_name  = var.db_subnet_group_name
+  db_subnet_ids         = module.network.private_subnet_ids
   db_security_group_ids = [module.network.default_security_group_id]
   db_kms_key_arn        = var.db_kms_key_arn
 
-  os_domain_name = var.os_domain_name
-  os_kms_key_arn = var.os_kms_key_arn
+  os_domain_name        = var.os_domain_name
+  os_kms_key_arn        = var.os_kms_key_arn
+  os_subnet_ids         = module.network.private_subnet_ids
+  os_security_group_ids = [module.network.default_security_group_id]
 }
 
 # Lambda function used as a secure API proxy
@@ -67,7 +72,8 @@ module "lambda_proxies" {
 module "api_gateway" {
   source = "../../modules/api-gateway"
 
-  api_name              = var.api_name
-  stage_name            = var.stage_name
-  authorizer_invoke_arn = var.authorizer_invoke_arn
+  api_name                = var.api_name
+  stage_name              = var.stage_name
+  authorizer_invoke_arn   = var.authorizer_invoke_arn
+  proxy_lambda_invoke_arn = module.lambda_proxies.lambda_function_arn
 }

@@ -16,3 +16,8 @@ output "invoke_url" {
   description = "Base invoke URL for the API stage"
   value       = aws_api_gateway_stage.this.invoke_url
 }
+
+output "api_log_group_name" {
+  description = "CloudWatch log group for API Gateway access logs"
+  value       = aws_cloudwatch_log_group.api.name
+}

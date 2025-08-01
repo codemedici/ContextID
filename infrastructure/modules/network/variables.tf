@@ -28,6 +28,20 @@ variable "isolated_subnet_cidrs" {
   default     = ["10.0.2.0/24"]
 }
 
+# Availability zones corresponding to each subnet index
+variable "availability_zones" {
+  description = "Availability zones for subnets"
+  type        = list(string)
+  default     = ["us-east-1a", "us-east-1b"]
+}
+
+# Whether to provision a managed NAT gateway for private subnets
+variable "enable_nat_gateway" {
+  description = "Create a NAT gateway for private subnet egress"
+  type        = bool
+  default     = true
+}
+
 # Optional tags applied to all resources
 variable "tags" {
   description = "Map of tags to assign to resources"

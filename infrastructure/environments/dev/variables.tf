@@ -51,18 +51,6 @@ variable "cluster_name" {
   default     = "dev-llm-cluster"
 }
 
-variable "execution_role_arn" {
-  description = "IAM role for ECS task execution"
-  type        = string
-  default     = "arn:aws:iam::123456789012:role/dev-ecs-execution"
-}
-
-variable "task_role_arn" {
-  description = "IAM role assumed by ECS tasks"
-  type        = string
-  default     = "arn:aws:iam::123456789012:role/dev-ecs-task"
-}
-
 variable "privileged_llm_image" {
   description = "Container image for the privileged LLM"
   type        = string
@@ -73,6 +61,24 @@ variable "quarantined_llm_image" {
   description = "Container image for the quarantined LLM"
   type        = string
   default     = "123456789012.dkr.ecr.us-east-1.amazonaws.com/quarantined-llm:dev"
+}
+
+variable "desired_count" {
+  description = "Number of ECS tasks to run"
+  type        = number
+  default     = 1
+}
+
+variable "min_capacity" {
+  description = "Minimum number of tasks for autoscaling"
+  type        = number
+  default     = 1
+}
+
+variable "max_capacity" {
+  description = "Maximum number of tasks for autoscaling"
+  type        = number
+  default     = 2
 }
 
 # Database settings

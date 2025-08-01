@@ -49,3 +49,15 @@ variable "security_group_ids" {
   type        = list(string)
   default     = []
 }
+
+variable "environment_variables" {
+  description = "Environment variables for the function"
+  type        = map(string)
+  default     = {}
+}
+
+variable "log_retention_in_days" {
+  description = "Retention for CloudWatch Logs"
+  type        = number
+  default     = 30
+}
